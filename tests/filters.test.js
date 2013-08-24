@@ -5,7 +5,7 @@ var swig = require('swig'),
 describe('Filters:', function () {
 
   describe('markdown', function () {
-    swig.setFilter('markdown', extras.filters.markdown);
+    extras.useFilter(swig, 'markdown');
     it('{{ foo|markdown|raw }}', function () {
       expect(swig.render('{{ foo|markdown|raw }}', { locals: { foo: '# This is an H1' }}))
         .to.equal('<h1>This is an H1</h1>');
