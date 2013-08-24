@@ -1,0 +1,30 @@
+{
+  "name": "swig-extras",
+  "version": "0.0.0",
+  "description": "A collection of extra handy tags and filters for Swig Templates.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make lint && make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:paularmstrong/swig-extras.git"
+  },
+  "keywords": [
+    "Swig",
+    "Filters",
+    "Tags",
+    "Extensions"
+  ],
+  "author": "Paul Armstrong <paul@paularmstrongdesigns.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/paularmstrong/swig-extras/issues"
+  },
+  "devDependencies": {
+    "nodelint": "~0.6.2",
+    "expect.js": "~0.2.0",
+    "mocha": "~1.12.0",
+    "swig": ">=1"
+  }
+}
