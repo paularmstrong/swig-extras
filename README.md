@@ -39,6 +39,7 @@ Available Tags
 --------------
 
 * markdown
+* switch/case
 
 License
 -------

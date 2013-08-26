@@ -12,4 +12,14 @@ describe('Tags:', function () {
     });
   });
 
+  describe('switch', function () {
+    extras.useTag(swig, 'switch');
+    extras.useTag(swig, 'case');
+
+    it('switches', function () {
+      expect(swig.render('{% switch foo %}{% case "a" %}This is A{% case "b" %}This is B{% endswitch %}', { locals: { foo: 'a' }}))
+        .to.equal('This is A');
+    });
+  });
+
 });
