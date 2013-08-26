@@ -31,6 +31,7 @@ Available Filters
 * nl2br
 * pluck
 * split
+* trim
 
 Available Tags
 --------------

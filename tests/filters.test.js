@@ -53,4 +53,17 @@ describe('Filters:', function () {
     });
   });
 
+  describe('trim', function () {
+    extras.useFilter(swig, 'trim');
+    it('{{ foo|trim }}', function () {
+      expect(swig.render('{{ foo|trim }}', { locals: { foo: " trim me  " }}))
+        .to.equal('trim me');
+    });
+
+    it('{{ bar|trim }}', function () {
+      expect(swig.render('{{ bar|trim }}', { locals: { bar: [" trim me "] }}))
+        .to.equal('trim me');
+    });
+  });
+
 });
