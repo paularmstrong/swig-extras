@@ -26,6 +26,7 @@ extras.useTag(mySwig, 'markdown');
 Available Filters
 -----------------
 
+* groupby
 * markdown
 
 Available Tags
