@@ -23,6 +23,15 @@ describe('Filters:', function () {
     });
   });
 
+  describe('pluck', function () {
+    extras.useFilter(swig, 'pluck');
+    it('{{ people|pluck("name") }}', function () {
+      var opts = { locals: { people: [{ age: 30, name: 'Paul' }, { age: 28, name: 'Nicole'}] }};
+      expect(swig.render('{{ people|pluck("name") }}', opts))
+        .to.equal('Paul,Nicole');
+    });
+  });
+
   describe('split', function () {
     extras.useFilter(swig, 'split');
     it('{{ foo|split(",")|join(" & ") }}', function () {

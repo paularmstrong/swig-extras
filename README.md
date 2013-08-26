@@ -28,6 +28,7 @@ Available Filters
 
 * groupby
 * markdown
+* pluck
 * split
 
 Available Tags
