@@ -4,7 +4,7 @@ var swig = require('swig'),
 
 describe('Filters:', function () {
 
-  describe.only('groupby', function () {
+  describe('groupby', function () {
     extras.useFilter(swig, 'groupby');
     it('groups arrays by a key', function () {
       var opts = { locals: {
@@ -20,6 +20,14 @@ describe('Filters:', function () {
     it('{{ foo|markdown|raw }}', function () {
       expect(swig.render('{{ foo|markdown|raw }}', { locals: { foo: '# This is an H1' }}))
         .to.equal('<h1>This is an H1</h1>');
+    });
+  });
+
+  describe('split', function () {
+    extras.useFilter(swig, 'split');
+    it('{{ foo|split(",")|join(" & ") }}', function () {
+      expect(swig.render('{{ "one,two,three"|split(",")|join(" & ")|raw }}'))
+        .to.equal('one & two & three');
     });
   });
 
