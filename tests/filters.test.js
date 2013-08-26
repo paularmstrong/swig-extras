@@ -23,6 +23,19 @@ describe('Filters:', function () {
     });
   });
 
+  describe('nl2br', function () {
+    extras.useFilter(swig, 'nl2br');
+    it('{{ foo|nl2br }}', function () {
+      expect(swig.render('{{ foo|nl2br|raw }}', { locals: { foo: "a\nb" }}))
+        .to.equal('a<br>b');
+    });
+
+    it('{{ bar|nl2br }}', function () {
+      expect(swig.render('{{ bar|nl2br|raw }}', { locals: { bar: ["a\nb"] }}))
+        .to.equal('a<br>b');
+    });
+  });
+
   describe('pluck', function () {
     extras.useFilter(swig, 'pluck');
     it('{{ people|pluck("name") }}', function () {

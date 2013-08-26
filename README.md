@@ -28,6 +28,7 @@ Available Filters
 
 * groupby
 * markdown
+* nl2br
 * pluck
 * split
 
