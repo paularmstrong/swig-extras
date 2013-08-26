@@ -32,6 +32,7 @@ Available Filters
 * pluck
 * split
 * trim
+* truncate
 
 Available Tags
 --------------

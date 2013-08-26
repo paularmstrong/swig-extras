@@ -66,4 +66,22 @@ describe('Filters:', function () {
     });
   });
 
+  describe('truncate', function () {
+    extras.useFilter(swig, 'truncate');
+    it('{{ foo|truncate(3) }}', function () {
+      expect(swig.render('{{ foo|truncate(3) }}', { locals: { foo: "truncate me" }}))
+        .to.equal('tru...');
+    });
+
+    it('{{ foo|truncate(3, "") }}', function () {
+      expect(swig.render('{{ foo|truncate(3, "") }}', { locals: { foo: "truncate me" }}))
+        .to.equal('tru');
+    });
+
+    it('{{ bar|truncate(3) }}', function () {
+      expect(swig.render('{{ bar|truncate(3) }}', { locals: { bar: ["truncate me"] }}))
+        .to.equal('tru...');
+    });
+  });
+
 });
