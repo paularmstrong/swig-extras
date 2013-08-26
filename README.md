@@ -3,6 +3,36 @@ Swig Extras
 
 A collection of handy tags, filters, and extensions for [Swig](http://paularmstrong.github.io/swig/), the most awesome template engine for node.js.
 
+Usage
+-----
+
+Use a filter:
+
+```js
+var swig = require('swig'),
+  extras = require('swig-extras');
+extras.useFilter(swig, 'markdown');
+```
+
+Use a tag:
+
+```js
+var swig = require('swig'),
+  extras = require('swig-extras'),
+  mySwig = new swig.Swig();
+extras.useTag(mySwig, 'markdown');
+```
+
+Available Filters
+-----------------
+
+* markdown
+
+Available Tags
+--------------
+
+* markdown
+
 License
 -------
 
