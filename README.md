@@ -26,6 +26,7 @@ extras.useTag(mySwig, 'markdown');
 Available Filters
 -----------------
 
+* batch
 * groupby
 * markdown
 * nl2br

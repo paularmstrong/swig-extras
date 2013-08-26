@@ -4,6 +4,15 @@ var swig = require('swig'),
 
 describe('Filters:', function () {
 
+  describe('batch', function () {
+    extras.useFilter(swig, 'batch');
+    it('batches', function () {
+      var opts = { locals: { items: ['a', 'b', 'c', 'd', 'e', 'f', 'g'] }};
+      expect(swig.render('{% for row in items|batch(3, "no item") %}{{ row }} : {% endfor %}', opts))
+        .to.equal('a,b,c : d,e,f : g,no item,no item : ');
+    });
+  });
+
   describe('groupby', function () {
     extras.useFilter(swig, 'groupby');
     it('groups arrays by a key', function () {
