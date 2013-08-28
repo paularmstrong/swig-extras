@@ -26,8 +26,8 @@ describe('Filters:', function () {
 
   describe('markdown', function () {
     extras.useFilter(swig, 'markdown');
-    it('{{ foo|markdown|raw }}', function () {
-      expect(swig.render('{{ foo|markdown|raw }}', { locals: { foo: '# This is an H1' }}))
+    it('{{ foo|markdown }}', function () {
+      expect(swig.render('{{ foo|markdown }}', { locals: { foo: '# This is an H1' }}))
         .to.equal('<h1>This is an H1</h1>');
     });
   });
@@ -35,12 +35,12 @@ describe('Filters:', function () {
   describe('nl2br', function () {
     extras.useFilter(swig, 'nl2br');
     it('{{ foo|nl2br }}', function () {
-      expect(swig.render('{{ foo|nl2br|raw }}', { locals: { foo: "a\nb" }}))
+      expect(swig.render('{{ foo|nl2br }}', { locals: { foo: "a\nb" }}))
         .to.equal('a<br>b');
     });
 
     it('{{ bar|nl2br }}', function () {
-      expect(swig.render('{{ bar|nl2br|raw }}', { locals: { bar: ["a\nb"] }}))
+      expect(swig.render('{{ bar|nl2br }}', { locals: { bar: ["a\nb"] }}))
         .to.equal('a<br>b');
     });
   });
