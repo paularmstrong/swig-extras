@@ -1,6 +1,6 @@
 {
   "name": "swig-extras",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A collection of extra handy tags and filters for Swig Templates.",
   "main": "index.js",
   "scripts": {
