@@ -24,6 +24,18 @@ describe('Filters:', function () {
     });
   });
 
+  describe('indent', function () {
+    extras.useFilter(swig, 'indent');
+    it('{{ foo|indent }}', function () {
+      expect(swig.render('{{ foo|indent }}', { locals: { foo: 'bar'}}))
+        .to.equal('    bar');
+      expect(swig.render('{{ foo|indent(6) }}', { locals: { foo: 'bar'}}))
+        .to.equal('      bar');
+      expect(swig.render('{{ foo|indent(2, "a") }}', { locals: { foo: 'bar'}}))
+        .to.equal('aabar');
+    });
+  });
+
   describe('markdown', function () {
     extras.useFilter(swig, 'markdown');
     it('{{ foo|markdown }}', function () {
