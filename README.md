@@ -28,6 +28,7 @@ Available Filters
 
 * batch
 * groupby
+* indent
 * markdown
 * nl2br
 * pluck
