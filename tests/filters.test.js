@@ -33,6 +33,8 @@ describe('Filters:', function () {
         .to.equal('      bar');
       expect(swig.render('{{ foo|indent(2, "a") }}', { locals: { foo: 'bar'}}))
         .to.equal('aabar');
+      expect(swig.render('{{ foo|indent }}', { locals: { foo: 'bar\nbar'}}))
+        .to.equal('    bar\n    bar');
     });
   });
 
