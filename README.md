@@ -19,8 +19,7 @@ Use a tag:
 ```js
 var swig = require('swig'),
   extras = require('swig-extras'),
-  mySwig = new swig.Swig();
-extras.useTag(mySwig, 'markdown');
+extras.useTag(swig, 'markdown');
 ```
 
 Available Filters
