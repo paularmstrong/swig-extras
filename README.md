@@ -29,9 +29,11 @@ Available Filters
 * batch
 * groupby
 * indent
+* length
 * markdown
 * nl2br
 * pluck
+* slice
 * split
 * trim
 * truncate

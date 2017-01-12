@@ -38,6 +38,24 @@ describe('Filters:', function () {
     });
   });
 
+  describe('length', function () {
+    extras.useFilter(swig, 'length');
+    it('{{ "foobar"|length }}', function () {
+      expect(swig.render('{{ "foobar"|length }}'))
+        .to.equal('6');
+    });
+
+    it('{{ [1, 2, 3, 4, 5, 6]|length }}', function () {
+      expect(swig.render('{{ [1, 2, 3, 4, 5, 6]|length }}'))
+        .to.equal('6');
+    });
+
+    it('{{ obj|length }}', function () {
+      expect(swig.render('{{ foo|length }}', { locals: { foo: { 'a': 1, 'b': 2, 'c': 3 } }}))
+        .to.equal('3');
+    });
+  });
+
   describe('markdown', function () {
     extras.useFilter(swig, 'markdown');
     it('{{ foo|markdown }}', function () {
@@ -65,6 +83,29 @@ describe('Filters:', function () {
       var opts = { locals: { people: [{ age: 30, name: 'Paul' }, { age: 28, name: 'Nicole'}] }};
       expect(swig.render('{{ people|pluck("name") }}', opts))
         .to.equal('Paul,Nicole');
+    });
+  });
+
+  describe('slice', function () {
+    extras.useFilter(swig, 'slice');
+    it('{{ "12345"|slice(1,3) }}', function () {
+      expect(swig.render('{{ "12345"|slice(1,3) }}'))
+        .to.equal('23');
+    });
+
+    it('{{ "12345"|slice(1) }}', function () {
+      expect(swig.render('{{ "12345"|slice(1) }}'))
+        .to.equal('2345');
+    });
+
+    it('{{ [1, 2, 3, 4, 5]|slice(1,3) }}', function () {
+      expect(swig.render('{{ [1, 2, 3, 4, 5]|slice(1,3) }}'))
+        .to.equal('2,3');
+    });
+
+    it('{{ [1, 2, 3, 4, 5]|slice(1) }}', function () {
+      expect(swig.render('{{ [1, 2, 3, 4, 5]|slice(1) }}'))
+        .to.equal('2,3,4,5');
     });
   });
 
